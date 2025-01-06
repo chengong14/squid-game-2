@@ -85,4 +85,36 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.opacity = '1';
         document.body.style.transition = 'opacity 0.5s ease';
     }, 100);
-}); 
+});
+
+// Enhanced iframe handling
+function handleGameFrame() {
+    const iframe = document.querySelector('.game-frame iframe');
+    const gameFrame = document.querySelector('.game-frame');
+    
+    // Add loading indicator
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'loading-indicator';
+    loadingDiv.innerHTML = `
+        <div class="spinner"></div>
+        <p>Loading game...</p>
+    `;
+    gameFrame.appendChild(loadingDiv);
+    
+    // Handle iframe load event
+    iframe.addEventListener('load', () => {
+        loadingDiv.style.display = 'none';
+        iframe.style.opacity = '1';
+    });
+    
+    // Handle iframe error
+    iframe.addEventListener('error', () => {
+        loadingDiv.innerHTML = `
+            <p>Sorry, the game couldn't be loaded.</p>
+            <button onclick="location.reload()">Try Again</button>
+        `;
+    });
+}
+
+// Call the function when DOM is loaded
+document.addEventListener('DOMContentLoaded', handleGameFrame); 

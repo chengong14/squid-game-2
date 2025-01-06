@@ -69,14 +69,14 @@ window.addEventListener('scroll', () => {
 });
 
 // Game iframe loading optimization
-window.addEventListener('load', () => {
-    const iframe = document.querySelector('.game-frame iframe');
-    iframe.style.opacity = '0';
-    iframe.addEventListener('load', () => {
-        iframe.style.opacity = '1';
-        iframe.style.transition = 'opacity 0.3s ease';
-    });
-});
+// window.addEventListener('load', () => {
+//     const iframe = document.querySelector('.game-frame iframe');
+//     iframe.style.opacity = '0';
+//     iframe.addEventListener('load', () => {
+//         iframe.style.opacity = '1';
+//         iframe.style.transition = 'opacity 0.3s ease';
+//     });
+// });
 
 // Add page loading animation
 document.addEventListener('DOMContentLoaded', () => {
